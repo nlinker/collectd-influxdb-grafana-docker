@@ -2,13 +2,14 @@ version: '2'
 
 services:
   collectd:
-#    ports:
-#      - "8125:8125/udp"
+    ports:
+      - "8125:8125/udp"
+      - "8125:8125"
     image: fr3nd/collectd
-    privileged: true
-    network_mode: host
+    #privileged: true
+    #network_mode: host
     volumes:
-      - /proc:/mnt/proc:ro
+      #- /proc:/mnt/proc:ro
       - ./collectd.conf:/etc/collectd/collectd.conf
   influxdb:
     image: influxdb:1.0
